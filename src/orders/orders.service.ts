@@ -21,4 +21,15 @@ export class OrdersService {
         });
         return createdOrder.save();
     }
+
+    async cancel(orderId: string) {
+        return this.orderModel.findOneAndUpdate(
+            { id: orderId },
+            { state: "canceled"}
+        )
+        .catch(function (err) {
+            console.error(err);
+            return err;
+        })
+    }
 }

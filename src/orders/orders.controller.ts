@@ -15,7 +15,13 @@ export class OrdersController {
     @Post()
     @UsePipes(new ValidationPipe())
     @HttpCode(201)
-    async createOrder(@Body('order') order: CreateOrderDto) {
+    async create(@Body('order') order: CreateOrderDto) {
         return this.orderService.create(order);
     }
+
+    @Post('cancel')
+    async cancel(@Body('orderId') orderId: string) {
+        return this.orderService.cancel(orderId);
+    }
+
 }
