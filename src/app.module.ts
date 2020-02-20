@@ -12,17 +12,18 @@ const envConfigOption = {
   sampleFilePath: './.env.sample' 
 };
 
-const easyConfigService = new EasyconfigService(envConfigOption)
 @Module({
   imports: [
     OrdersModule,
     EasyconfigModule.register(envConfigOption),
     MongooseModule.forRootAsync({      
-      useFactory: async () => ({
-        uri: easyConfigService.get('MONGO_URI'),
+      imports: [EasyconfigModule.register(envConfigOption)],
+      useFactory: async (config: EasyconfigService) => ({
+        uri: config.get('MONGO_URI'),
         useNewUrlParser: true,
         useUnifiedTopology:true,
       }),
+      inject: [EasyconfigService]
     }),
   ],
   
