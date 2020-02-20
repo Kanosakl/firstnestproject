@@ -30,6 +30,6 @@ const envConfigOption = {
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule { 
-  constructor(private config: EasyconfigService) { }
 }
