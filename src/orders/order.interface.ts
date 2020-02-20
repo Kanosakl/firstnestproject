@@ -1,7 +1,8 @@
-import { Item } from "../items/item.interface";
-import { Customer } from "src/customers/customer.interface";
-export class Order {    
-    items: Item[];
+export class Order {
+    items: [{
+        id: number,
+        quantity: number,
+    }];
     state: string;
-    customer: Customer;
+    email: string;
 }

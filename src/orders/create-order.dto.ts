@@ -1,5 +1,6 @@
-import { Item } from "src/items/item.interface";
-
 export class CreateOrderDto {
-    items: Item[];
+    items: [{
+        id: number,
+        quantity: number,
+    }];
 }
