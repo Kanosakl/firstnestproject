@@ -1,6 +1,6 @@
 export class CreateOrderDto {
     items: [{
-        id: number,
+        id: string,
         quantity: number,
     }];
 }

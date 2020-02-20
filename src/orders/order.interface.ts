@@ -1,6 +1,6 @@
 export class Order {
     items: [{
-        id: number,
+        id: string,
         quantity: number,
     }];
     state: string;

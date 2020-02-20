@@ -2,7 +2,7 @@ import {Schema} from "mongoose";
 
 export const OrderSchema = new Schema({
     items: [{
-        id: Number,
+        id: String,
         quantity: Number,
     }],
     state: String,
